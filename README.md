@@ -5,7 +5,9 @@
 Backup solution for Windows PCs: a server (Docker, web interface) and an agent on each PC. This repository only hosts the **downloads**.
 
 ## Windows agent
-1. Download `Ursavault-Agent-<version>-win-x64.zip` from the [latest release](../../releases/latest).
+The server and the agent have separate releases: *Server vX.Y.Z* and *Windows agent X.Y.Z* (tags `agent-v...`).
+
+1. Download the agent from your server (page **Devices**), or `Ursavault-Agent-<version>-win-x64.zip` from the [latest release](../../releases/latest).
 2. Check it against `SHA256SUMS.txt`:
 
        Get-FileHash .\Ursavault-Agent-<version>-win-x64.zip -Algorithm SHA256
