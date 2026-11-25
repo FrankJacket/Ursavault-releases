@@ -26,6 +26,8 @@ The programs are not code-signed, so Windows SmartScreen may show a warning on f
       -e EnrollmentKey=<long random value> -e TZ=America/Toronto \
       -v ursavault-data:/data ghcr.io/frankjacket/ursavault-server:latest
 
+The same image is also on Docker Hub: [`frankjacket/ursavault-server`](https://hub.docker.com/r/frankjacket/ursavault-server).
+
 Open `http://<docker host>:5080`. Use the same enrollment key on the agents. Outside a trusted network, put a reverse proxy with HTTPS in front of the container.
 
 ## License
