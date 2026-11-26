@@ -22,9 +22,15 @@ The programs are not code-signed, so Windows SmartScreen may show a warning on f
 
 ## Server (Docker)
 
+**`/data` must be a folder of the host mounted into the container (a bind mount), not a Docker named volume**: named volumes are unstable with Ursavault. Replace `<data folder>` with the absolute path of that folder, for example `/srv/ursavault`. The container runs as user 1654, who must be able to write there.
+
+    sudo mkdir -p "<data folder>"
+    sudo chown -R 1654:1654 "<data folder>"
     docker run -d --name ursavault --restart unless-stopped -p 5080:5080 \
       -e EnrollmentKey=<long random value> -e TZ=America/Toronto \
-      -v ursavault-data:/data ghcr.io/frankjacket/ursavault-server:latest
+      -v "<data folder>:/data" ghcr.io/frankjacket/ursavault-server:latest
+
+Still using a named volume on `/data`? Follow [Moving from a named volume](../../wiki/Server-Installation#moving-from-a-named-volume) before changing your command.
 
 The same image is also on Docker Hub: [`frankjacket/ursavault-server`](https://hub.docker.com/r/frankjacket/ursavault-server).
 
